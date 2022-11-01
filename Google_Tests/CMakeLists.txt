@@ -13,5 +13,9 @@ file(COPY ../items.txt
 # 'Google_Tests_run' is the target name
 # 'test1.cpp tests2.cpp' are source files with tests
 add_executable(Google_Tests_run
-        testMain.cpp)
+        testMain.cpp
+        ../OnlinePacker.cpp ../OnlinePacker.hpp
+        ../OfflinePacker.cpp ../OfflinePacker.hpp
+        ../FileParser.cpp ../FileParser.hpp
+        ../PermutationGenerator.cpp ../PermutationGenerator.hpp)
 target_link_libraries(Google_Tests_run gtest gtest_main gmock gmock_main)
