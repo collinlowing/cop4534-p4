@@ -7,3 +7,5 @@ add_executable(cop4534_p4 main.cpp)
 
 file(COPY items.txt
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+add_subdirectory(Google_Tests)
