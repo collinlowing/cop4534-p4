@@ -7,7 +7,7 @@ add_executable(cop4534_p4 main.cpp
         OnlinePacker.cpp OnlinePacker.hpp
         OfflinePacker.cpp OfflinePacker.hpp
         FileParser.cpp FileParser.hpp
-        PermutationGenerator.cpp PermutationGenerator.hpp)
+        PermutationGenerator.cpp PermutationGenerator.hpp Bin.cpp Bin.hpp Item.cpp Item.hpp)
 
 file(COPY items.txt
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
