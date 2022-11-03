@@ -7,7 +7,14 @@
 
 
 class Item {
-
+private:
+    double itemSize;
+    Item * next;
+public:
+    Item(double itemSize);
+    double getItemSize();
+    Item* getNext();
+    void setNext(Item* item);
 };
 
 
