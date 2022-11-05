@@ -15,11 +15,10 @@ Bins::Bins(int size) {
 }
 
 void Bins::addItemFirstFit(double itemSize) {
-    Item * newItem = new Item(itemSize);
     bool itemPlaced = false;
     for(int i = 0; i < size; i++) {
         if(canBinFitItem(i, itemSize)) {
-            bins[i] = newItem;
+            insert(i, itemSize);
             itemPlaced = true;
             break;
         }
@@ -27,25 +26,23 @@ void Bins::addItemFirstFit(double itemSize) {
     if(!itemPlaced) {
         std::cout << "Item of size " << itemSize << " cannot fit in allocated bins. Discarded" << std::endl;
     }
-    else {
-        currentBinIndex++;
-    }
 }
 
 void Bins::addItemNextFit(double itemSize) {
-    Item * newItem = new Item(itemSize);
     bool itemPlaced = false;
 
     if(canBinFitItem(currentBinIndex, itemSize)) {
-        bins[currentBinIndex] = newItem;
+        insert(currentBinIndex, itemSize);
+        itemPlaced = true;
+    }
+    else if(currentBinIndex < size) {
+        currentBinIndex++;
+        insert(currentBinIndex, itemSize);
         itemPlaced = true;
     }
 
     if(!itemPlaced) {
         std::cout << "Item of size " << itemSize << " cannot fit in allocated bins. Discarded" << std::endl;
-    }
-    else {
-        currentBinIndex++;
     }
 }
 
@@ -65,8 +62,6 @@ void Bins::addItemBestFit(double itemSize) {
         std::cout << "Item of size " << itemSize << " cannot fit in allocated bins. Discarded" << std::endl;
     }
 }
-
-
 
 void Bins::print() {
     for(int i = 0; i < size; i++) {
@@ -113,4 +108,24 @@ bool Bins::canBinFitItem(int index, double itemSize) {
         }
     }
     return false;
+}
+
+Item * Bins::getItems(int index) {
+    return bins[index];
+}
+
+void Bins::insert(int index, double itemSize) {
+    Item * newItem = new Item(itemSize);
+
+    Item * head = bins[index];
+
+    if(head == nullptr) {
+        bins[index] = newItem;
+    }
+    else {
+        while(head->getNext() != nullptr) {
+            head = head->getNext();
+        }
+        head->setNext(newItem);
+    }
 }

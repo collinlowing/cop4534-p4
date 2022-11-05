@@ -24,6 +24,9 @@ public:
 
     double getBinOccupancy(int index);
     bool canBinFitItem(int index, double itemSize);
+
+    Item *getItems(int index);
+    void insert(int index, double itemSize);
 };
 
 
