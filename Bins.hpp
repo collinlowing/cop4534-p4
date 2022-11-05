@@ -13,10 +13,13 @@ class Bins {
 private:
     Item** bins;
     int size;
+    int currentBinIndex;
     double MAX_BIN_OCCUPANCY = 1.0;
 public:
     Bins(int size);
-    void addItem(double itemSize);
+    void addItemFirstFit(double itemSize);
+    void addItemNextFit(double itemSize);
+    void addItemBestFit(double itemSize);
     void print();
 
     double getBinOccupancy(int index);
