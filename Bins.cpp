@@ -47,13 +47,12 @@ void Bins::addItemNextFit(double itemSize) {
 }
 
 void Bins::addItemBestFit(double itemSize) {
-    Item * newItem = new Item(itemSize);
     bool itemPlaced = false;
     double occupancy = 0;
 
     for(int i = 0; i < size; i++) {
         if(canBinFitItem(i, itemSize) && occupancy <= getBinOccupancy(i)) {
-            bins[i] = newItem;
+            insert(i, itemSize);
             occupancy = getBinOccupancy(i);
             itemPlaced = true;
         }
