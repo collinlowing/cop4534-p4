@@ -50,6 +50,7 @@ void Bins::addItemBestFit(double itemSize) {
     bool itemPlaced = false;
     double occupancy = 0;
 
+
     for(int i = 0; i < size; i++) {
         if(canBinFitItem(i, itemSize) && occupancy <= getBinOccupancy(i)) {
             insert(i, itemSize);
@@ -63,7 +64,7 @@ void Bins::addItemBestFit(double itemSize) {
 }
 
 void Bins::print() {
-    for(int i = 0; i < size; i++) {
+    for(int i = 0; i < getNumberOfBins(); i++) {
         std::cout << "b" << i << ": ";
         Item* head = bins[i];
         while(head != nullptr) {
@@ -127,4 +128,24 @@ void Bins::insert(int index, double itemSize) {
         }
         head->setNext(newItem);
     }
+}
+
+Bins::~Bins() {
+    for(int i = 0; i < size; i++) {
+        delete bins[i];
+    }
+
+    delete [] bins;
+}
+
+int Bins::getNumberOfBins() {
+    int counter = 0;
+    do {
+        if(bins[counter] == nullptr) {
+            break;
+        }
+        counter++;
+    } while (true);
+
+    return counter;
 }

@@ -27,6 +27,8 @@ public:
 
     Item *getItems(int index);
     void insert(int index, double itemSize);
+    int getNumberOfBins();
+    ~Bins();
 };
 
 
