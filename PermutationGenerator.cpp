@@ -14,20 +14,20 @@ PermutationGenerator::PermutationGenerator(int *perm, int numOfItems) {
 }
 
 int *PermutationGenerator::getNextPermutation() {
-    int routeSize = numOfItems - 1;
+    int binStackSize = numOfItems - 1;
 
     int m, k, p, q;
-    m = routeSize - 2;
+    m = binStackSize - 2;
     while (perm[m] > perm[m + 1]) {
         m = m - 1;
     }
-    k = routeSize - 1;
+    k = binStackSize - 1;
     while (perm[m] > perm[k]) {
         k = k - 1;
     }
     swap(m, k);
     p = m + 1;
-    q = routeSize - 1;
+    q = binStackSize - 1;
     while (p < q) {
         swap(p, q);
         p++;
