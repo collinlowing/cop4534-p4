@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -ftest-coverage -fprofile-arcs -pthread
 
-OBJECTS =
+OBJECTS = Item.o Bins.o FileParser.o OfflinePacker.o OnlinePacker.o OptimalPacker.o PermutationGenerator.o
 
 
 main: main.o $(OBJECTS)

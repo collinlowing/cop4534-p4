@@ -15,6 +15,7 @@ public:
     double getItemSize();
     Item* getNext();
     void setNext(Item* item);
+    ~Item();
 };
 
 

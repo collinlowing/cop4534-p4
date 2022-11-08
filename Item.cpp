@@ -20,3 +20,7 @@ Item *Item::getNext() {
 void Item::setNext(Item* item) {
     next = item;
 }
+
+Item::~Item() {
+    delete next;
+}

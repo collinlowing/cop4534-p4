@@ -149,5 +149,3 @@ int Bins::getNumberOfBins() {
 
     return counter;
 }
-
-//TODO: sort algorithm for offline bin packing

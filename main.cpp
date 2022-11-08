@@ -1,7 +1,9 @@
 #include "OnlinePacker.hpp"
 #include "OfflinePacker.hpp"
+#include "OptimalPacker.hpp"
 
 int main() {
+    // initialize variables
     std::string itemsFileName = "items.txt";
 
     int optimalSolutionNumberOfBins;
@@ -24,16 +26,16 @@ int main() {
     onlineBestFitNumberOfBins = onlineBestFit->getNumberOfBins();
 
     // Offline Algorithm
-
     Bins * offlineFirstFit = OfflinePacker::packItemsFirstFit(itemsFileName);
     offlineFirstFitNumberOfBins = offlineFirstFit->getNumberOfBins();
 
     Bins * offlineBestFit = OfflinePacker::packItemsBestFit(itemsFileName);
     offlineBestFitNumberOfBins = offlineBestFit->getNumberOfBins();
 
-    //Bins * optimalSolution =
+    Bins * optimalSolution = OptimalPacker::getOptimalBinStack(itemsFileName);
+    optimalSolutionNumberOfBins = optimalSolution->getNumberOfBins();
 
-    // Print results
+    // Print number of bins from results
     printf("Policy\t\t\t\tTotal Bins Used\n");
     printf("Optimal Solution\t\t\t\t%d\n", optimalSolutionNumberOfBins);
     printf("Online Algorithm\n");
@@ -46,8 +48,7 @@ int main() {
 
     // Print Optimal bins
     std::cout << "Optimal Solution:" << std::endl;
-
-
+    optimalSolution->print();
 
     // Print Online bins
     std::cout << "Online First Fit:" << std::endl;
@@ -65,6 +66,14 @@ int main() {
 
     std::cout << "Offline Best Fit:" << std::endl;
     offlineBestFit->print();
+
+    // cleanup
+    delete onlineFirstFit;
+    delete onlineNextFit;
+    delete onlineBestFit;
+    delete offlineFirstFit;
+    delete offlineBestFit;
+    delete optimalSolution;
 
     return 0;
 }

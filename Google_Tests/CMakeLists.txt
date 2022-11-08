@@ -17,5 +17,5 @@ add_executable(Google_Tests_run
         ../OnlinePacker.cpp ../OnlinePacker.hpp
         ../OfflinePacker.cpp ../OfflinePacker.hpp
         ../FileParser.cpp ../FileParser.hpp
-        ../PermutationGenerator.cpp ../PermutationGenerator.hpp ../Bins.cpp ../Bins.hpp ../Item.cpp ../Item.hpp testBins.cpp testParser.cpp)
+        ../PermutationGenerator.cpp ../PermutationGenerator.hpp ../Bins.cpp ../Bins.hpp ../Item.cpp ../Item.hpp testBins.cpp testParser.cpp ../OptimalPacker.cpp ../OptimalPacker.hpp)
 target_link_libraries(Google_Tests_run gtest gtest_main gmock gmock_main)
