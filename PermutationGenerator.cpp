@@ -33,7 +33,7 @@ int *PermutationGenerator::getNextPermutation() {
         p++;
         q--;
     }
-    // printPermutation(perm, routeSize); // used for testing
+    //printPermutation(perm, binStackSize); // used for testing
     return perm;
 }
 

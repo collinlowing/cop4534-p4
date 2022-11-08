@@ -7,6 +7,7 @@
 #include "PermutationGenerator.hpp"
 
 Bins *OptimalPacker::getOptimalBinStack(std::string fileName) {
+    // use just two simple arrays and not object pointers. Try and fill in each bin iteratively but skip to the next bin when it is full.
     // get items from file
     std::vector<double> itemsVector = FileParser::getItemsFromFile(fileName);
     // initialize variables
@@ -64,18 +65,21 @@ Bins *OptimalPacker::getOptimalBinStack(std::string fileName) {
             bins->addItemNextFit(items[indexOrder[i] - 1]);
         }
         // if number of bins is smaller, than save it.
-        if(bins->getNumberOfBins() < smallestNumberOfBins) {
-            smallestNumberOfBins = bins->getNumberOfBins();
+        if(bins->getCurrentBinIndex() < smallestNumberOfBins) {
+            smallestNumberOfBins = bins->getCurrentBinIndex();
             delete optimalBinStack;
             optimalBinStack = bins;
             optimalBin = true;
+            optimalBinStack->print();
         }
     }
 
-    // cleanup
+    // cleanup heap
     delete [] indexOrder;
     delete [] items;
-    delete bins;
+    if(bins != optimalBinStack) {
+        delete bins;
+    }
 
     return optimalBinStack;
 }

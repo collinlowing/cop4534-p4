@@ -149,3 +149,7 @@ int Bins::getNumberOfBins() {
 
     return counter;
 }
+
+int Bins::getCurrentBinIndex() {
+    return currentBinIndex;
+}
