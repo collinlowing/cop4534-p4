@@ -48,22 +48,22 @@ void Bins::addItemNextFit(double itemSize) {
 
 void Bins::addItemBestFit(double itemSize) {
     bool itemPlaced = false;
-    double bestOccupancy = 0;
+    double biggestOccupancy = 0;
     int bestIndex = 0;
+    double currentOccupancy;
 
-
-    for(int i = 0; i < size; i++) { //TODO: Broke
-        double currentOccupancy = getBinOccupancy(i) + itemSize;
-        if(currentOccupancy <= 1 && bestOccupancy <= currentOccupancy) {
+    for(int i = 0; i < size; i++) {
+        currentOccupancy = getBinOccupancy(i) + itemSize;
+        if(currentOccupancy > biggestOccupancy && currentOccupancy <= 1) {
             bestIndex = i;
-            bestOccupancy = currentOccupancy;
-            bestOccupancy = getBinOccupancy(i);
+            biggestOccupancy = currentOccupancy;
         }
     }
-    if(bestOccupancy >= 0) {
+    if(canBinFitItem(bestIndex, itemSize)) {
         insert(bestIndex, itemSize);
         itemPlaced = true;
     }
+
     if(!itemPlaced) {
         std::cout << "Item of size " << itemSize << " cannot fit in allocated bins. Discarded" << std::endl;
     }
