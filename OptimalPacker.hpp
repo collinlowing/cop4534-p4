@@ -10,8 +10,16 @@
 #include "Bins.hpp"
 
 class OptimalPacker {
+private:
+    int numberOfItems;
+    int lowestNumberOfBins = 0;
+    double* optimalBin = nullptr;
 public:
-    static Bins* getOptimalBinStack(std::string fileName);
+    int getLowestNumberOfBins();
+
+    double* getOptimalBinStack(std::string fileName);
+
+    void print();
 };
 
 

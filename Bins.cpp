@@ -52,7 +52,7 @@ void Bins::addItemBestFit(double itemSize) {
     int bestIndex = 0;
 
 
-    for(int i = 0; i < size; i++) {
+    for(int i = 0; i < size; i++) { //TODO: Broke
         double currentOccupancy = getBinOccupancy(i) + itemSize;
         if(currentOccupancy <= 1 && bestOccupancy <= currentOccupancy) {
             bestIndex = i;
