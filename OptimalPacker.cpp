@@ -11,9 +11,11 @@ double *OptimalPacker::getOptimalBinStack(std::string fileName) {
     // get items from file
     std::vector<double> itemsVector = FileParser::getItemsFromFile(fileName);
     numberOfItems = (int) itemsVector.at(0);
+    lowestNumberOfBins = numberOfItems;
     int* indexes = new int[numberOfItems]();
     double* items = new double[numberOfItems]();
     double* bin = new double[numberOfItems]();
+    optimalBin = new double[numberOfItems]();
     double binTotal = 0;
 
     // initialize the index of items to add to stack of bins
@@ -50,11 +52,14 @@ double *OptimalPacker::getOptimalBinStack(std::string fileName) {
             }
             binTotal += items[indexes[itemIndex]];
             bin[itemIndex] = items[indexes[itemIndex]];
-            indexes = pg.getNextPermutation();
         }
-        if(numberOfBins <= lowestNumberOfBins) { //TODO: this is never true?
+        indexes = pg.getNextPermutation();
+        if(numberOfBins < lowestNumberOfBins) {
+            lowestNumberOfBins = numberOfBins;
             std::cout << "optimal" << std::endl;
-            optimalBin = bin;
+            for(int i = 0; i < numberOfItems; i++) {
+                optimalBin[i] = bin[i];
+            }
         }
     }
 
@@ -63,78 +68,6 @@ double *OptimalPacker::getOptimalBinStack(std::string fileName) {
     delete[] bin;
 
     return optimalBin;
-    /*// initialize variables
-    int numberOfItems = itemsVector.at(0);
-    double * items = new double[numberOfItems];
-    Bins * bins = new Bins(numberOfItems);
-    int smallestNumberOfBins;
-    int * indexOrder = new int[numberOfItems];
-
-    // removing the number of items in the first index of vector
-    itemsVector.erase(itemsVector.begin());
-    itemsVector.resize(numberOfItems);
-
-    // copy vector to array for faster accessing
-    int counter = 0;
-    for(double item: itemsVector) {
-        items[counter] = item;
-        counter++;
-    }
-
-    // initialize the index of items to add to stack of bins
-    for(int i = 1; i <= numberOfItems; i++) {
-        indexOrder[i - 1] = i;
-    }
-
-    // get the first stack of bins
-    for(int i = 0; i < numberOfItems; i++) {
-        bins->addItemBestFit(items[indexOrder[i] - 1]);
-    }
-
-    // smallest number of bins is first iteration results
-    smallestNumberOfBins = bins->getNumberOfBins();
-
-    // initialize permutation generator
-    PermutationGenerator pg(indexOrder, numberOfItems);
-
-    // get number of permutations
-    int numOfPermutations = PermutationGenerator::getNumOfPermutations(numberOfItems);
-
-    // holds the optimal bin stack
-    Bins* optimalBinStack = nullptr;
-
-    bool optimalBin = false;
-
-    // iterate through all possible permutations
-    for(int permutationCount = 0; permutationCount < numOfPermutations - 1; permutationCount++) {
-        indexOrder = pg.getNextPermutation();
-        if(!optimalBin) {
-            delete bins;
-        }
-        bins = new Bins(numberOfItems);
-        optimalBin = false;
-        // add items into bins
-        for(int i = 0; i < numberOfItems; i++) {
-            bins->addItemNextFit(items[indexOrder[i] - 1]);
-        }
-        // if number of bins is smaller, than save it.
-        if(bins->getCurrentBinIndex() < smallestNumberOfBins) {
-            smallestNumberOfBins = bins->getCurrentBinIndex();
-            delete optimalBinStack;
-            optimalBinStack = bins;
-            optimalBin = true;
-            optimalBinStack->print();
-        }
-    }
-
-    // cleanup heap
-    delete [] indexOrder;
-    delete [] items;
-    if(bins != optimalBinStack) {
-        delete bins;
-    }
-
-    return optimalBinStack;*/
 }
 
 int OptimalPacker::getLowestNumberOfBins() {

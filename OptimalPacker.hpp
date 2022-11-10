@@ -12,7 +12,7 @@
 class OptimalPacker {
 private:
     int numberOfItems;
-    int lowestNumberOfBins = 0;
+    int lowestNumberOfBins;
     double* optimalBin = nullptr;
 public:
     int getLowestNumberOfBins();

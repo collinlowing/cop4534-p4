@@ -32,9 +32,9 @@ int main() {
     Bins * offlineBestFit = OfflinePacker::packItemsBestFit(itemsFileName);
     offlineBestFitNumberOfBins = offlineBestFit->getNumberOfBins();
 
-   /* OptimalPacker op;
+    OptimalPacker op;
     double * optimalSolution = op.getOptimalBinStack(itemsFileName);
-    optimalSolutionNumberOfBins = op.getLowestNumberOfBins();*/
+    optimalSolutionNumberOfBins = op.getLowestNumberOfBins();
 
     // Print number of bins from results
     printf("Policy\t\t\t\tTotal Bins Used\n");
@@ -49,7 +49,7 @@ int main() {
 
     // Print Optimal bins
     std::cout << "Optimal Solution:" << std::endl;
-    //op.print();
+    op.print();
 
     // Print Online bins
     std::cout << "Online First Fit:" << std::endl;
