@@ -14,7 +14,7 @@ PermutationGenerator::PermutationGenerator(int *perm, int numOfItems) {
 }
 
 int *PermutationGenerator::getNextPermutation() {
-    int binStackSize = numOfItems - 1;
+    int binStackSize = numOfItems;
 
     int m, k, p, q;
     m = binStackSize - 2;

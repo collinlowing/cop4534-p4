@@ -21,19 +21,14 @@ double *OptimalPacker::getOptimalBinStack(std::string fileName) {
     // initialize the index of items to add to stack of bins
     // skipping 0 because of permutationGenerator may not function properly
     // subtract 1 from all indexes used from array
-    for(int i = 1; i <= numberOfItems; i++) {
+    for(int i = 1; i < numberOfItems + 1; i++) {
         indexes[i - 1] = i;
     }
 
-    // removing the number of items in the first index of vector
-    itemsVector.erase(itemsVector.begin());
-    itemsVector.resize(numberOfItems);
-
     // copy vector to array for faster accessing
-    int counter = 0;
-    for(double item: itemsVector) {
-        items[counter] = item;
-        counter++;
+    for(int i = 1; i < numberOfItems + 1; i++) {
+        items[i - 1] = itemsVector[i];
+        std::cout << items[i - 1] << " ";
     }
 
     // initialize permutation generator
@@ -43,24 +38,29 @@ double *OptimalPacker::getOptimalBinStack(std::string fileName) {
     int numOfPermutations = PermutationGenerator::getNumOfPermutations(numberOfItems);
 
     // iterate through all possible permutations
-    for(int permutationCount = 0; permutationCount < numOfPermutations - 1; permutationCount++) {
-        int numberOfBins = 0;
+    for(int permutationCount = 0; permutationCount < numOfPermutations; permutationCount++) {
+        int numberOfBins = 1;
         for(int itemIndex = 0; itemIndex < numberOfItems; itemIndex++) {
-            if(binTotal >= 1) {
+            if(binTotal >= 1.0) {
                 numberOfBins++;
                 binTotal = 0;
             }
-            binTotal += items[indexes[itemIndex]];
-            bin[itemIndex] = items[indexes[itemIndex]];
+            binTotal += items[indexes[itemIndex] - 1];
+            double item = items[indexes[itemIndex] - 1];
+            bin[itemIndex] = item;
         }
-        indexes = pg.getNextPermutation();
         if(numberOfBins < lowestNumberOfBins) {
             lowestNumberOfBins = numberOfBins;
             std::cout << "optimal" << std::endl;
             for(int i = 0; i < numberOfItems; i++) {
+                std::cout << bin[i] << " ";
+            }
+            std::cout << std::endl;
+            for(int i = 0; i < numberOfItems; i++) {
                 optimalBin[i] = bin[i];
             }
         }
+        indexes = pg.getNextPermutation();
     }
 
     //delete[] indexes;
@@ -75,11 +75,33 @@ int OptimalPacker::getLowestNumberOfBins() {
 }
 
 void OptimalPacker::print() {
+    /*for(int i = 0; i < numberOfItems; i++) {
+        std::cout << optimalBin[i] << " ";
+    }
+    std::cout << std::endl;*/
+
     double binTotal = 0;
-    double previousItem = 0;
+    bool newLine = false;
     int binCount = 0;
     for(int i = 0; i < numberOfItems; i++) {
-        if(binTotal <= 0) {
+        binTotal += optimalBin[i];
+        if(binTotal >= 1) {
+            std::cout << std::endl;
+            std::cout << "b" << binCount << ": ";
+            binTotal = 0;
+            binCount++;
+        }
+        if(binCount == 0) {
+            std::cout << "b" << binCount << ": ";
+            binCount++;
+        }
+        if(optimalBin[i + 1] > 0 && optimalBin[i + 1] + binTotal >= 1) {
+            std::cout << optimalBin[i];
+        }
+        else {
+            std::cout << optimalBin[i] << ", ";
+        }
+        /*if(binTotal <= 0) {
             std::cout << "b" << binCount << ": ";
         }
         binTotal += optimalBin[i];
@@ -92,6 +114,6 @@ void OptimalPacker::print() {
             std::cout << previousItem << ", ";
         }
 
-        previousItem = optimalBin[i];
+        previousItem = optimalBin[i];*/
     }
 }
