@@ -38,7 +38,7 @@ int main() {
 
     // Print number of bins from results
     printf("Policy\t\t\t\tTotal Bins Used\n");
-    printf("Optimal Solution\t\t\t\t%d\n", optimalSolutionNumberOfBins);
+    printf("Optimal Solution\t\t%d\n", optimalSolutionNumberOfBins);
     printf("Online Algorithm\n");
     printf("First Fit\t\t\t\t%d\n", onlineFirstFitNumberOfBins);
     printf("Next Fit\t\t\t\t%d\n", onlineNextFitNumberOfBins);

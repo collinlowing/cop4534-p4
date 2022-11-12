@@ -7,6 +7,7 @@
 
 
 #include <string>
+#include <float.h>
 #include "Bins.hpp"
 
 class OptimalPacker {
@@ -14,6 +15,7 @@ private:
     int numberOfItems;
     int lowestNumberOfBins;
     double* optimalBin = nullptr;
+    double BIN_MAX = 1.0;
 public:
     int getLowestNumberOfBins();
 
