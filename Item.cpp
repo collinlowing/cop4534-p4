@@ -21,7 +21,7 @@ Item *Item::getNext() {
     return next;
 }
 
-void Item::setNext(Item* item) {
+void Item::setNext(Item *item) {
     next = item;
 }
 

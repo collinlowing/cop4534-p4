@@ -14,8 +14,9 @@
 
 class OfflinePacker {
 public:
-    static Bins* packItemsFirstFit(std::string fileName);
-    static Bins* packItemsBestFit(std::string fileName);
+    static Bins *packItemsFirstFit(std::string fileName);
+
+    static Bins *packItemsBestFit(std::string fileName);
 };
 
 

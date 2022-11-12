@@ -13,12 +13,16 @@
 class Item {
 private:
     double itemSize;
-    Item * next;
+    Item *next;
 public:
     Item(double itemSize);
+
     double getItemSize();
-    Item* getNext();
-    void setNext(Item* item);
+
+    Item *getNext();
+
+    void setNext(Item *item);
+
     ~Item();
 };
 

@@ -24,20 +24,20 @@ int main() {
     int offlineBestFitNumberOfBins;
 
     // Online Algorithm
-    Bins * onlineFirstFit = OnlinePacker::packItemsFirstFit(itemsFileName);
+    Bins *onlineFirstFit = OnlinePacker::packItemsFirstFit(itemsFileName);
     onlineFirstFitNumberOfBins = onlineFirstFit->getNumberOfBins();
 
-    Bins * onlineNextFit = OnlinePacker::packItemsNextFit(itemsFileName);
+    Bins *onlineNextFit = OnlinePacker::packItemsNextFit(itemsFileName);
     onlineNextFitNumberOfBins = onlineNextFit->getNumberOfBins();
 
-    Bins * onlineBestFit = OnlinePacker::packItemsBestFit(itemsFileName);
+    Bins *onlineBestFit = OnlinePacker::packItemsBestFit(itemsFileName);
     onlineBestFitNumberOfBins = onlineBestFit->getNumberOfBins();
 
     // Offline Algorithm
-    Bins * offlineFirstFit = OfflinePacker::packItemsFirstFit(itemsFileName);
+    Bins *offlineFirstFit = OfflinePacker::packItemsFirstFit(itemsFileName);
     offlineFirstFitNumberOfBins = offlineFirstFit->getNumberOfBins();
 
-    Bins * offlineBestFit = OfflinePacker::packItemsBestFit(itemsFileName);
+    Bins *offlineBestFit = OfflinePacker::packItemsBestFit(itemsFileName);
     offlineBestFitNumberOfBins = offlineBestFit->getNumberOfBins();
 
     std::cout << "Generating the optimal solution... This may take 1-3 minutes" << std::endl;
@@ -45,9 +45,9 @@ int main() {
     op.getOptimalBinStack(itemsFileName);
     optimalSolutionNumberOfBins = op.getLowestNumberOfBins();
 
-    // Print number of bins from results
+    // Print number of bins from results in a table
     printf("Policy\t\t\t\tTotal Bins Used\n");
-    printf("Optimal Solution\t\t%d\n", optimalSolutionNumberOfBins);
+    printf("Optimal Solution\t\t\t\t%d\n", optimalSolutionNumberOfBins);
     printf("Online Algorithm\n");
     printf("First Fit\t\t\t\t%d\n", onlineFirstFitNumberOfBins);
     printf("Next Fit\t\t\t\t%d\n", onlineNextFitNumberOfBins);
@@ -77,7 +77,7 @@ int main() {
     std::cout << "Offline Best Fit:" << std::endl;
     offlineBestFit->print();
 
-    // cleanup
+    // cleanup heap
     delete onlineFirstFit;
     delete onlineNextFit;
     delete onlineBestFit;

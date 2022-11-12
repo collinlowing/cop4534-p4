@@ -18,12 +18,13 @@ class OptimalPacker {
 private:
     int numberOfItems;
     int lowestNumberOfBins;
-    double* optimalBin = nullptr;
+    double *optimalBin = nullptr;
+    int *indexesP = nullptr;
     double BIN_MAX = 1.0;
 public:
     int getLowestNumberOfBins();
 
-    double* getOptimalBinStack(std::string fileName);
+    double *getOptimalBinStack(std::string fileName);
 
     void print();
 

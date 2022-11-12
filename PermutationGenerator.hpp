@@ -27,8 +27,6 @@ public:
     void swap(int a, int b);
 
     static int getNumOfPermutations(int numOfItems);
-
-
 };
 
 
