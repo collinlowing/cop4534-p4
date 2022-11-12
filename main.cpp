@@ -40,7 +40,7 @@ int main() {
     Bins *offlineBestFit = OfflinePacker::packItemsBestFit(itemsFileName);
     offlineBestFitNumberOfBins = offlineBestFit->getNumberOfBins();
 
-    std::cout << "Generating the optimal solution... This may take 1-3 minutes" << std::endl;
+    std::cout << "Generating the optimal solution... This may take about 1 minute" << std::endl;
     OptimalPacker op;
     op.getOptimalBinStack(itemsFileName);
     optimalSolutionNumberOfBins = op.getLowestNumberOfBins();
