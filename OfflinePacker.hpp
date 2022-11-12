@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/1/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: OfflinePacker.hpp
+  Project 4
+
+  Sorts the items and adds them using the different packing algorithms to bins
+***************************************************************/
 
 #ifndef COP4534_P4_OFFLINEPACKER_HPP
 #define COP4534_P4_OFFLINEPACKER_HPP

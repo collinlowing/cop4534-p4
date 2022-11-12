@@ -1,9 +1,9 @@
 /***************************************************************
   Student Name: Collin Lowing
   File Name: PermutationGenerator.cpp
-  Project 3
+  Project 4
 
-  Generates permutations of traversals
+  Generates permutations of item indexes
 ***************************************************************/
 
 #include "PermutationGenerator.hpp"

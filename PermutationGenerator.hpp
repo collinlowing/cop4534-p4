@@ -1,9 +1,9 @@
 /***************************************************************
   Student Name: Collin Lowing
   File Name: PermutationGenerator.hpp
-  Project 3
+  Project 4
 
-  Generates permutations of traversals
+  Generates permutations of item indexes
 ***************************************************************/
 
 #ifndef COP4534_P3_PERMUTATIONGENERATOR_HPP

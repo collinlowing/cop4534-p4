@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/1/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: Bins.cpp
+  Project 4
+
+  Manages Items in bins and different packing algorithms
+***************************************************************/
 
 #include "Bins.hpp"
 

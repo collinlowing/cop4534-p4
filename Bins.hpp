@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/1/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: Bins.hpp
+  Project 4
+
+  Manages Items in bins and different packing algorithms
+***************************************************************/
 
 #ifndef COP4534_P4_BINS_HPP
 #define COP4534_P4_BINS_HPP

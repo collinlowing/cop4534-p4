@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/1/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: Item.cpp
+  Project 4
+
+  Stores values for each item and holds the next pointer for a linked list
+***************************************************************/
 
 #include "Item.hpp"
 

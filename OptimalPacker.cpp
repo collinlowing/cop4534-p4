@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/7/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: OptimalPacker.cpp
+  Project 4
+
+  Tries every combination to get the best packing of bins
+***************************************************************/
 
 #include "OptimalPacker.hpp"
 #include "FileParser.hpp"
@@ -63,7 +67,7 @@ double *OptimalPacker::getOptimalBinStack(std::string fileName) {
         }
     }
 
-    //delete[] indexes;
+    delete[] indexes;
     delete[] items;
     delete[] bin;
 
@@ -105,4 +109,8 @@ void OptimalPacker::print() {
         }
 
     }
+}
+
+OptimalPacker::~OptimalPacker() {
+    delete [] optimalBin;
 }

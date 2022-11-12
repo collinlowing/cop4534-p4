@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/7/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: OptimalPacker.hpp
+  Project 4
+
+  Tries every combination to get the best packing of bins
+***************************************************************/
 
 #ifndef COP4534_P4_OPTIMALPACKER_HPP
 #define COP4534_P4_OPTIMALPACKER_HPP
@@ -22,6 +26,8 @@ public:
     double* getOptimalBinStack(std::string fileName);
 
     void print();
+
+    ~OptimalPacker();
 };
 
 

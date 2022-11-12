@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/1/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: Item.hpp
+  Project 4
+
+  Stores values for each item and holds the next pointer for a linked list
+***************************************************************/
 
 #ifndef COP4534_P4_ITEM_HPP
 #define COP4534_P4_ITEM_HPP

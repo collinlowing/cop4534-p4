@@ -1,3 +1,11 @@
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: main.cpp
+  Project 4
+
+  Runs all packing algorithms and prints results
+***************************************************************/
+
 #include "OnlinePacker.hpp"
 #include "OfflinePacker.hpp"
 #include "OptimalPacker.hpp"
@@ -32,8 +40,9 @@ int main() {
     Bins * offlineBestFit = OfflinePacker::packItemsBestFit(itemsFileName);
     offlineBestFitNumberOfBins = offlineBestFit->getNumberOfBins();
 
+    std::cout << "Generating the optimal solution... This may take 1-3 minutes" << std::endl;
     OptimalPacker op;
-    double * optimalSolution = op.getOptimalBinStack(itemsFileName);
+    op.getOptimalBinStack(itemsFileName);
     optimalSolutionNumberOfBins = op.getLowestNumberOfBins();
 
     // Print number of bins from results

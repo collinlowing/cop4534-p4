@@ -1,6 +1,10 @@
-//
-// Created by cel on 11/1/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: OnlinePacker.hpp
+  Project 4
+
+  adds items to bins one at a time using the different packing algorithms
+***************************************************************/
 
 #ifndef COP4534_P4_ONLINEPACKER_HPP
 #define COP4534_P4_ONLINEPACKER_HPP

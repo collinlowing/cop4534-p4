@@ -1,6 +1,10 @@
-//
-// Created by cel on 10/11/22.
-//
+/***************************************************************
+  Student Name: Collin Lowing
+  File Name: FileParser.hpp
+  Project 4
+
+  Gets all the data from the file for use elsewhere
+***************************************************************/
 
 #ifndef COP4534_P3_FILEPARSER_HPP
 #define COP4534_P3_FILEPARSER_HPP
