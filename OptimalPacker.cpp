@@ -110,5 +110,7 @@ void OptimalPacker::print() {
 
 OptimalPacker::~OptimalPacker() {
     delete[] optimalBin;
+    // When uncommented, throws an error.
+    // Although without deleting indexes pointer, there is a memory leak.
     //delete [] indexesP;
 }
